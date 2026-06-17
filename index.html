@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startupdevta | Performance Marketing Agency</title>
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --dark-blue: #0A192F; 
+            --orange: #FF6B00;    
+            --black: #111111;     
+            --light-bg: #F8F9FA;  
+            --white: #FFFFFF;
+        }
+
+        /* Base Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--black);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .btn {
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #e65c00;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--black) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        #hero h1 span {
+            color: var(--orange);
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            color: #d1d5db;
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+        }
+
+        .section-title span {
+            color: var(--orange);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--dark-blue);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--orange);
+        }
+
+        .service-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Team Section */
+        #team {
+            background-color: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+        }
+
+        .team-card h4 {
+            color: var(--dark-blue);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card p {
+            color: var(--orange);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+
+        .footer-content h2 {
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        .footer-content p {
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366; /* Official WhatsApp Green */
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Pulse Animation for CTA */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            #hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Startup<span>devta</span></a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#team">Our Team</a>
+            <a href="#contact" class="btn">Get a Free Audit</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Scale Your Growth with <span>Data-Driven</span> Performance</h1>
+        <p>Founded in 2018, Startupdevta is your elite performance marketing partner. We turn clicks into clients, visitors into conversions, and ideas into scalable revenue.</p>
+        <a href="#contact" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Start Scaling Today</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our <span>Performance</span> Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>High-Converting Web Development</h3>
+                <p>Traffic is useless if it doesn't convert. Our Full-Stack & Web Development team creates lightning-fast, responsive, and robust websites engineered specifically for high conversion rates and seamless user experiences.</p>
+            </div>
+            <div class="service-card">
+                <h3>Creative Video Marketing</h3>
+                <p>Attention is the new currency. We design highly engaging, scroll-stopping video creatives that lower your Cost Per Acquisition (CPA) and tell your brand's story effectively across all social platforms.</p>
+            </div>
+            <div class="service-card">
+                <h3>Social Media Management</h3>
+                <p>We don't just post; we build communities. By analyzing audience behavior, we craft data-backed social media strategies that foster engagement, build brand authority, and drive organic inbound leads.</p>
+            </div>
+            <div class="service-card">
+                <h3>Paid Ads & Lead Generation</h3>
+                <p>Stop wasting ad spend. We manage highly targeted ROI-centric campaigns across Google, Meta, and LinkedIn. Coupled with aggressive Business Development strategies, we ensure your sales pipeline is never empty.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <h2 class="section-title">Meet The <span>Experts</span></h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <h4>Rohit Chauhan</h4>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-card">
+                <h4>Saksham Gupta</h4>
+                <p>Full Stack Developer</p>
+            </div>
+            <div class="team-card">
+                <h4>Divyanshi</h4>
+                <p>Business Development Manager</p>
+            </div>
+            <div class="team-card">
+                <h4>Aakash Gautam</h4>
+                <p>Video Editor</p>
+            </div>
+            <div class="team-card">
+                <h4>Rohan</h4>
+                <p>Web Developer</p>
+            </div>
+            <div class="team-card">
+                <h4>Yogesh</h4>
+                <p>Social Media Manager</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Ready to dominate your market?</h2>
+            <p>Let's build a performance engine for your business.</p>
+            <br>
+            <p><strong>HQ Address:</strong> E-116, Sector 8, Rohini, Delhi 110085</p>
+            <p><strong>Established:</strong> 2018</p>
+        </div>
+        <p style="font-size: 0.8rem; border-top: 1px solid #333; padding-top: 1rem;">
+            &copy; 2026 Startupdevta. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- Floating WhatsApp Icon -->
+    <a href="https://wa.me/919990114099" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg>
+    </a>
+
+</body>
+</html>
